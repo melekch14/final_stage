@@ -63,7 +63,7 @@ $(document).ready(function () {
         var dataTable = $(this).closest('table').DataTable();
         var data = dataTable.row($(this).closest('tr')).data();
         // Fill the input fields with the data from the clicked row
-
+        $("#exampleModal").modal('show');
         $("#id_appel_offre").val(data.id_appel);
         $("#nom_af").val(data.nom);
         $("#num_af").val(data.num_appel);
@@ -163,6 +163,7 @@ $(document).ready(function () {
             data: { id_appel: id_appel, lotissement: lotissement },
             success: function (response) {
                 reloadTable(id_appel);
+                $("#appelMod").modal('hide');
             },
             error: function (error) {
                 console.log(error);
@@ -228,6 +229,7 @@ $(document).ready(function () {
                 $("#num_af").val("");
                 $("#date_af").val("");
                 $("#date_lim_af").val("");
+                $("#exampleModal").modal('hide');
                 table.ajax.reload();
             },
             error: function (error) {

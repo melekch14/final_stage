@@ -14,7 +14,7 @@ CREATE TABLE `vocation` (
 
 CREATE TABLE `lot` (
   `code_lot` varchar(255) NOT NULL,
-  `surface` decimal(10,0) DEFAULT NULL,
+  `surface` decimal(10,3) DEFAULT NULL,
   `cuf` varchar(100) DEFAULT NULL,
   `cos` varchar(100) DEFAULT NULL,
   `hauteur` varchar(100) DEFAULT NULL,
@@ -80,9 +80,9 @@ CREATE TABLE `sous_offre` (
 
 CREATE TABLE `soumission` (
   `id_soum` int(11) NOT NULL AUTO_INCREMENT,
-  `option1` decimal(10,0) DEFAULT NULL,
-  `option2` decimal(10,0) DEFAULT NULL,
-  `principal` decimal(10,0) DEFAULT NULL,
+  `option1` decimal(10,3) DEFAULT NULL,
+  `option2` decimal(10,3) DEFAULT NULL,
+  `principal` decimal(10,3) DEFAULT NULL,
   `id_s_offre` int(11) DEFAULT NULL,
   `lot` varchar(255) DEFAULT NULL,
   PRIMARY KEY (id_soum),
@@ -93,9 +93,9 @@ CREATE TABLE `soumission` (
 CREATE TABLE `resultat_soumission` (
   `id_s` int(11) NOT NULL AUTO_INCREMENT,
   `nbr_soumission` int(11) DEFAULT NULL,
-  `prix_moyen_soumis` decimal(10,0) DEFAULT NULL,
-  `meilleur_offre` decimal(10,0) DEFAULT NULL,
-  `ca` decimal(10,0) DEFAULT NULL,
+  `prix_moyen_soumis` decimal(10,3) DEFAULT NULL,
+  `meilleur_offre` decimal(10,3) DEFAULT NULL,
+  `ca` decimal(10,3) DEFAULT NULL,
   `lot` varchar(255) DEFAULT NULL,
   PRIMARY KEY (id_s),
   FOREIGN KEY (lot) REFERENCES lot(code_lot)

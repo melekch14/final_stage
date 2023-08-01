@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Albuhaira invest</title>
-   <!-- Favicon -->
-   <link rel="shortcut icon" href="images/logo_albuhaira.svg" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/logo_albuhaira.svg" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Typography CSS -->
@@ -18,9 +18,10 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <link rel="stylesheet" href="datatables/datatables-bs4/css/dataTables.bootstrap4.min.css">
-   <link rel="stylesheet" href="datatables/datatables-responsive/css/responsive.bootstrap4.min.css">
-   <link rel="stylesheet" href="datatables/datatables-buttons/css/buttons.bootstrap4.min.css">
-    
+    <link rel="stylesheet" href="datatables/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="datatables/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/custom_table.css">
     <style>
         .iq-card-body {
             position: relative;
@@ -31,6 +32,46 @@
             position: absolute;
             top: -40px;
             right: 24px;
+        }
+
+
+        .action-buttons {
+            white-space: nowrap;
+            /* Prevent wrapping of buttons */
+        }
+
+        .omodify-btn,
+        .modify-btn,
+        .odelete-btn,
+        .delete-btn {
+            display: inline-block;
+            /* Allow buttons to take only the required space */
+            padding: 5px 10px;
+            border: none;
+            background-color: #2f40e0;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 5px;
+            color: #FFF;
+        }
+
+        .modify-btn:hover,
+        .omodify-btn:hover,
+        .odelete-btn:hover,
+        .delete-btn:hover {
+            background-color: #ddd;
+            color: #000;
+        }
+
+        .modify-btn i,
+        .omodify-btn i,
+        .odelete-btn i,
+        .delete-btn i {
+            margin-right: 5px;
+        }
+
+        td.hidden {
+            display: none;
         }
     </style>
 </head>
@@ -90,7 +131,8 @@
                                     soumissions</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                             <ul id="soum" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                 <li><a href="appel_offre.html"><i class="ri-tablet-line"></i>Appel d'offre</a></li>
-                                <li><a href="retrait_cahier_de_charge.html"><i class="ri-device-line"></i>Retrait cahier de
+                                <li><a href="retrait_cahier_de_charge.html"><i class="ri-device-line"></i>Retrait cahier
+                                        de
                                         charge</a></li>
                             </ul>
                         </li>
@@ -98,23 +140,25 @@
 
 
                         <li>
-                            <a href="#imp" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-profile-line"></i><span>Importation / Exportation</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                            <a href="#imp" class="iq-waves-effect collapsed" data-toggle="collapse"
+                                aria-expanded="false"><i class="ri-profile-line"></i><span>Importation /
+                                    Exportation</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                             <ul id="imp" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                               <li><a href="importer.html"><i class="ri-device-line"></i>Impotrer</a></li>
+                                <li><a href="importer.html"><i class="ri-device-line"></i>Impotrer</a></li>
                             </ul>
                         </li>
 
 
 
                         <li>
-                            <a href="#stat" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i
-                                  class="ri-profile-line"></i><span>Statistiques</span><i
-                                  class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                            <a href="#stat" class="iq-waves-effect collapsed" data-toggle="collapse"
+                                aria-expanded="false"><i class="ri-profile-line"></i><span>Statistiques</span><i
+                                    class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                             <ul id="stat" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                               <li><a href="depouillement.html"><i class="ri-tablet-line"></i>Dépouillement</a></li>
-                               <li><a href="resume.html"><i class="ri-device-line"></i>Synthése</a></li>
+                                <li><a href="depouillement.html"><i class="ri-tablet-line"></i>Dépouillement</a></li>
+                                <li><a href="resume.html"><i class="ri-device-line"></i>Synthése</a></li>
                             </ul>
-                         </li>
+                        </li>
 
                     </ul>
                 </nav>
@@ -285,7 +329,7 @@
                         <li>
                             <a href="#"
                                 class="search-toggle iq-waves-effect d-flex align-items-center bg-primary rounded">
-                                
+
                                 <div class="caption">
                                     <h6 class="mb-0 line-height text-white">Ryhab arafet</h6>
                                     <span class="font-size-12 text-white">Available</span>
@@ -295,7 +339,8 @@
                                 <div class="iq-card shadow-none m-0">
                                     <div class="iq-card-body p-0 ">
                                         <div class="d-inline-block w-100 text-center p-3">
-                                            <a class="bg-primary iq-sign-btn" href="#" id="disconnectBtn" role="button">Sign
+                                            <a class="bg-primary iq-sign-btn" href="#" id="disconnectBtn"
+                                                role="button">Sign
                                                 out<i class="ri-login-box-line ml-2"></i></a>
                                         </div>
                                     </div>
@@ -325,13 +370,14 @@
                                 <button class="top-right-button btn btn-primary" data-toggle="modal"
                                     data-target="#offreMod">+</button>
                                 <div class="table-responsive">
-                                    <table id="offreTable" class="table table-bordered">
+                                    <table id="offreTable" class="dataTable">
                                         <thead>
                                             <tr>
                                                 <th>l'offre</th>
                                                 <th>Participant</th>
                                                 <th>Appel</th>
-                                                <th></th>
+                                                <th>Soumissions</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -353,16 +399,17 @@
                                         </div>
                                         <div class="modal-body">
                                             <form>
+                                                <input type="hidden" value="0" id="id_sf">
                                                 <div class="form-group">
                                                     <label for="email">Titre de l'offre</label>
                                                     <input type="text" class="form-control" id="offre_title">
                                                 </div>
                                                 <button type="button" id="add_offre"
-                                                    class="btn btn-primary">Ajouter</button>
+                                                    class="btn btn-primary">Enregistrer</button>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -383,13 +430,14 @@
                                 <button class="top-right-button btn btn-primary" data-toggle="modal"
                                     data-target="#soumMod">+</button>
                                 <div class="table-responsive">
-                                    <table id="soumTable" class="table table-bordered">
+                                    <table id="soumTable" class="dataTable">
                                         <thead>
                                             <tr>
                                                 <th>Lots</th>
                                                 <th>Principale</th>
                                                 <th>Option 1</th>
                                                 <th>Option 2</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -404,7 +452,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Lotissements</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Soumissions</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -412,6 +460,7 @@
                                         <div class="modal-body">
                                             <form>
                                                 <input type="hidden" id="id_sousoff">
+                                                <input type="hidden" id="id_soum" value="0">
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="form-group">
@@ -457,7 +506,7 @@
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -524,17 +573,17 @@
 
     <script src="datatables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 
-      <script src="datatables/datatables-responsive/js/dataTables.responsive.min.js"></script>
-      <script src="datatables/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-      <script src="datatables/datatables-buttons/js/dataTables.buttons.min.js"></script>
-      <script src="datatables/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-      <script src="datatables/datatables-buttons/js/buttons.html5.min.js"></script>
-      <script src="datatables/datatables-buttons/js/buttons.print.min.js"></script>
-      <script src="datatables/datatables-buttons/js/buttons.colVis.min.js"></script>
-      <script src="datatables/datatables-buttons/js/buttons.html5.js"></script>
-      <script src="plugins/jszip/jszip.min.js"></script>
-      <script src="plugins/pdfmake/pdfmake.min.js"></script>
-      <script src="plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="datatables/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="datatables/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="datatables/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="datatables/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="datatables/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="datatables/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="datatables/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="datatables/datatables-buttons/js/buttons.html5.js"></script>
+    <script src="plugins/jszip/jszip.min.js"></script>
+    <script src="plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="plugins/pdfmake/vfs_fonts.js"></script>
 
     <script src="script/sous_offre.js"></script>
 </body>

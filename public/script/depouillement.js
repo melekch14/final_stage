@@ -114,9 +114,9 @@ $(document).ready(function () {
             $.each(lotNames, function (index, lotName) {
                 var lotData = sousOffre.lots[lotName];
                 if (lotData) {
-                    row += '<td>' + lotData.lot_principal + '</td>' +
-                        '<td>' + lotData.lot_option1 + '</td>' +
-                        '<td>' + lotData.lot_option2 + '</td>';
+                    row += '<td>' + lotData.lot_principal.toFixed(3) + '</td>' +
+                        '<td>' + lotData.lot_option1.toFixed(3) + '</td>' +
+                        '<td>' + lotData.lot_option2.toFixed(3) + '</td>';
                 } else {
                     row += '<td></td><td></td><td></td>';
                 }
@@ -154,11 +154,11 @@ $(document).ready(function () {
 
                                 const nbSArray = jsonData.map(item => item.nbS);
                                 const prixArray = jsonData.map(item => "3 500,000");
-                                const sumArray = jsonData.map(item => item.sum_of_three_columns_avg);
-                                const maxArray = jsonData.map(item => item.max_value);
+                                const sumArray = jsonData.map(item => item.sum_of_three_columns_avg.toFixed(3));
+                                const maxArray = jsonData.map(item => item.max_value.toFixed(3));
                                 const surfaceArray = jsonData.map(item => item.surface);
                                 const lotArray = jsonData.map(item => item.lot);
-                                const chiffreAffaireArray = maxArray.map((max, index) => max * surfaceArray[index]);
+                                const chiffreAffaireArray = maxArray.map((max, index) => (max * surfaceArray[index]).toFixed(3));
 
                                 data.sort((a, b) => a.lot.localeCompare(b.lot));
 
@@ -333,11 +333,11 @@ $(document).ready(function () {
                         $.each(mergedData, function (index, item) {
                             var row = $('<tr>').appendTo(table);
                             $('<td>').text(item.vocation).appendTo(row);
-                            $('<td>').text(item.total_chiffre_d_affaire).appendTo(row);
+                            $('<td>').text(item.total_chiffre_d_affaire.toFixed(3)).appendTo(row);
                             $('<td>').text(item.count_sum).appendTo(row);
-                            $('<td>').text(item.avg).appendTo(row);
-                            $('<td>').text(item.min_sum).appendTo(row);
-                            $('<td>').text(item.max_sum).appendTo(row);
+                            $('<td>').text(item.avg.toFixed(3)).appendTo(row);
+                            $('<td>').text(item.min_sum.toFixed(3)).appendTo(row);
+                            $('<td>').text(item.max_sum.toFixed(3)).appendTo(row);
                         });
 
                         // Append the table to a container (e.g., a div with ID "table-container")

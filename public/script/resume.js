@@ -105,13 +105,13 @@ $(document).ready(function () {
               row.append($("<td>").text(rowData.code_lot));
               row.append($("<td>").text(rowData.vocation));
               row.append($("<td>").text(rowData.surface));
-              row.append($("<td>").text(rowData.max_sum));
-              row.append($("<td>").text(rowData.min_sum));
-              row.append($("<td>").text(rowData.avg_sum));
+              row.append($("<td>").text(rowData.max_sum.toFixed(3)));
+              row.append($("<td>").text(rowData.min_sum.toFixed(3)));
+              row.append($("<td>").text(rowData.avg_sum.toFixed(3)));
               row.append($("<td>").text(rowData.nb));
               row.append($("<td>").text(rowData.nom));
-              row.append($("<td>").text(rowData.max_sum));
-              row.append($("<td>").text(rowData.chiffre_affaire));
+              row.append($("<td>").text(rowData.max_sum.toFixed(3)));
+              row.append($("<td>").text(rowData.chiffre_affaire.toFixed(3)));
               tableBody.append(row);
             }
           }

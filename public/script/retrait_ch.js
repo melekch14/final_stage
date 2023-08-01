@@ -85,7 +85,7 @@ $(document).ready(function () {
     $('#retraitTable tbody').on('click', '.modify-button', function () {
         var dataTable = $(this).closest('table').DataTable();
         var data = dataTable.row($(this).closest('tr')).data();
-        
+        $("#exampleModal").modal('show');
         $("#id_retrait").val(data.id_retrait);
         $("#appel_select").val(data.id_appof);
         $("#participant_select").val(data.participant);
@@ -167,6 +167,7 @@ $(document).ready(function () {
                 $("#participant_select").val("");
                 $("#date_cr").val("");
                 $("#retrait_description").val("");
+                $("#exampleModal").modal('hide');
                 table.ajax.reload();
             },
             error: function (error) {
