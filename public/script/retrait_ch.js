@@ -119,7 +119,7 @@ $(document).ready(function () {
             url: "/api/offre-de-soumission/getById/" + id,
             method: "GET",
             success: function (response) {
-                var dataToSend = { retrait: id};
+                var dataToSend = { retrait: id , id_appel:response.id_appof};
                 localStorage.setItem("retraitData", JSON.stringify(dataToSend));
                 window.location.href = "sous_offres.html";
             },

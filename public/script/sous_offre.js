@@ -2,9 +2,11 @@ $(document).ready(function () {
   // Retrieve the data from localStorage
   var dataReceived = localStorage.getItem("retraitData");
   var retraitid = "";
+  var id_appof = "";
   if (dataReceived) {
     var data = JSON.parse(dataReceived);
     retraitid = data.retrait;
+    id_appof = data.id_appel;
   }
 
   $("#add_offre").click(function () {
@@ -34,26 +36,6 @@ $(document).ready(function () {
         // Handle error
       }
     });
-  });
-
-  $.ajax({
-    url: "/api/lotissemnts/getByRetrait/" + retraitid,
-    method: "GET",
-    success: function (response) {
-      response = response.data
-      var options = '';
-      if (response && response.length > 0) {
-        options += '<option value="0">selectionner lotissement</option>';
-        response.forEach(function (lotissement) {
-          options += '<option value="' + lotissement.code_lotissement + '">' + lotissement.nom + '</option>';
-        });
-        $('#lotissement_select').html(options);
-      }
-    },
-    error: function (error) {
-      console.log(error);
-      // Handle error
-    }
   });
 
   $("#add_soum").click(function () {
@@ -95,17 +77,11 @@ $(document).ready(function () {
 
   });
 
-  $('#lotissement_select').on('change', function () {
-    var idLotissement = $(this).val();
+  getLotByAppel(id_appof);
 
-    if (idLotissement != 0) {
-      getLotByLotissement(idLotissement);
-    }
-  });
-
-  function getLotByLotissement(idLotissement) {
+  function getLotByAppel(id_appel) {
     $.ajax({
-      url: "/api/lot/getByLotissement/" + idLotissement,
+      url: "/api/lot/getByAppel/" + id_appel,
       method: "GET",
       success: function (response) {
         $('#lot_select').html("");

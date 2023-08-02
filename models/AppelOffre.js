@@ -20,6 +20,10 @@ class AppelOffre {
   static deleteAppelOffre(id, callback) {
     db.query('DELETE FROM appel_offre WHERE id_appel = ?', [id], callback);
   }
+
+  static getAppelNumber(callback) {
+    db.query('SELECT count(*) as nb FROM appel_offre', callback);
+  }
 }
 
 module.exports = AppelOffre;

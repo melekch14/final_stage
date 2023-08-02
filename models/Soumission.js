@@ -24,6 +24,10 @@ class Soumission {
   static deleteSoumission(id, callback) {
     db.query('DELETE FROM soumission WHERE id_soum = ?', [id], callback);
   }
+
+  static getNbSoumissions(callback) {
+    db.query('SELECT count(*) as nb FROM soumission', callback);
+  }
 }
 
 module.exports = Soumission;

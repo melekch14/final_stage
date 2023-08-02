@@ -22,6 +22,19 @@ exports.getAllAppelsOffre2 = (req, res) => {
   });
 };
 
+exports.getAppelNumber = (req, res) => {
+  AppelOffre.getAppelNumber((err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Internal server error' });
+    } else if (results.length === 0) {
+      res.status(404).json({ message: 'Appel d\'offre not found' });
+    } else {
+      res.status(200).json(results[0]);
+    }
+  });
+};
+
 exports.getAppelOffreById = (req, res) => {
   const id = req.params.id;
   AppelOffre.getAppelOffreById(id, (err, results) => {

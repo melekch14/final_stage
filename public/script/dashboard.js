@@ -45,6 +45,28 @@ $(document).ready(function () {
   });
 
   $.ajax({
+    url: '/api/appel-offre/getAppelNumber', 
+    method: 'GET',
+    success: function (response) {
+      $("#appelNb").html(response.nb);
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+
+  $.ajax({
+    url: '/api/soumission/getNbSoumissions', 
+    method: 'GET',
+    success: function (response) {
+      $("#soumissionNb").html(response.nb);
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+
+  $.ajax({
     url: '/api/lotissemnts/getLotissementNumber',
     method: 'GET',
     success: function (response) {
@@ -173,5 +195,55 @@ $(document).ready(function () {
     });
 
   }
+
+  $.ajax({
+    url: '/api/appelLot/getNbLotPerAppel',
+    method: 'GET',
+    success: function (response) {
+      getNombreLotParAppel(response);
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+
+  function getNombreLotParAppel(dataSource){
+    $(() => {
+      $('#lotPerAppel').dxPieChart({
+        type: 'doughnut',
+        palette: 'Soft Pastel',
+        title: "Nombre de lot par appels d'offre",
+        dataSource,
+        legend: {
+          horizontalAlignment: 'center',
+          verticalAlignment: 'bottom',
+        },
+        export: {
+          enabled: true,
+        },
+        series: [{
+          smallValuesGrouping: {
+            mode: 'topN',
+            topCount: 3,
+          },
+          argumentField: 'nom',
+          valueField: 'nb',
+          label: {
+            visible: true,
+            format: 'fixedPoint',
+            customizeText(point) {
+              return `${point.valueText}`;
+            },
+            connector: {
+              visible: true,
+              width: 1,
+            },
+          },
+        }],
+      });
+    });
+  }
+
+  
 
 });

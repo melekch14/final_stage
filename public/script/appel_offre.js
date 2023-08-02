@@ -74,16 +74,16 @@ $(document).ready(function () {
     });
 
     $.ajax({
-        url: "/api/lotissemnts/getAll",
+        url: "/api/lot/getAll",
         method: "GET",
         success: function (response) {
             response = response.data
             if (response && response.length > 0) {
                 var options = '';
-                response.forEach(function (lotissement) {
-                    options += '<option value="' + lotissement.id_lots + '">' + lotissement.nom + '</option>';
+                response.forEach(function (lot) {
+                    options += '<option value="' + lot.code_lot + '">' + lot.code_lot + '</option>';
                 });
-                $('#lotissement_select').html(options);
+                $('#lot_select').html(options);
             }
         },
         error: function (error) {
@@ -96,7 +96,7 @@ $(document).ready(function () {
 
     function reloadTable(id) {
         $.ajax({
-            url: "/api/appelLotissement/getByAppel/" + id,
+            url: "/api/appelLot/getByAppel/" + id,
             method: "GET",
             success: function (response) {
                 var tbody = $("#myTable2 tbody");
@@ -104,7 +104,7 @@ $(document).ready(function () {
                 $.each(response.data, function (index, aol) {
                     var row = "<tr>" +
                         "<td>" + aol.offre + "</td>" +
-                        "<td>" + aol.lotissement + "</td>" +
+                        "<td>" + aol.lot + "</td>" +
                         "</tr>";
                     tbody.append(row);
                 });
@@ -153,14 +153,14 @@ $(document).ready(function () {
         });
     });
 
-    $("#add_appel_lotissement").click(function () {
-        var lotissement = $('#lotissement_select').val();
+    $("#add_appel_lot").click(function () {
+        var lot = $('#lot_select').val();
         var id_appel = $('#current_appel_id').val();
 
         $.ajax({
-            url: "/api/appelLotissement/create",
+            url: "/api/appelLot/create",
             method: "POST",
-            data: { id_appel: id_appel, lotissement: lotissement },
+            data: { id_appel: id_appel, lot: lot },
             success: function (response) {
                 reloadTable(id_appel);
                 $("#appelMod").modal('hide');

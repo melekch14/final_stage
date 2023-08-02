@@ -10,7 +10,7 @@ class Lot {
   }
 
   static getLotByAppel(id, callback) {
-    db.query('SELECT lo.* FROM lot lo JOIN lotissement l on lo.lotissement = l.code_lotissement join appel_offre_lotissement a on a.lotissement = l.code_lotissement WHERE a.id_appel = ?', [id], callback);
+    db.query('SELECT lo.* FROM lot lo join appel_offre_lot a on a.lot = lo.code_lot WHERE a.id_appel = ?', [id], callback);
   }
 
   static getLotByLot(lot , id, callback) {

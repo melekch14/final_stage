@@ -50,13 +50,13 @@ CREATE TABLE `appel_offre` (
   FOREIGN KEY (id_resp) REFERENCES responsable(id_res)
 );
 
-CREATE TABLE `appel_offre_lotissement` (
-  `id_appel_lotissement` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `appel_offre_lot` (
+  `id_appel_lot` int(11) NOT NULL AUTO_INCREMENT,
   `id_appel` int(11) NOT NULL,
-  `lotissement` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id_appel_lotissement),
+  `lot` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_appel_lot),
   FOREIGN KEY (id_appel) REFERENCES appel_offre(id_appel),
-  FOREIGN KEY (lotissement) REFERENCES lotissement(code_lotissement)
+  FOREIGN KEY (lot) REFERENCES lot(code_lot)
 );
 
 CREATE TABLE `retrait_cahier_de_charge` (

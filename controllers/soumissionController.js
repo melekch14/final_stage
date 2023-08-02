@@ -37,6 +37,19 @@ exports.getSoumissionById = (req, res) => {
   });
 };
 
+exports.getNbSoumissions = (req, res) => {
+  Soumission.getNbSoumissions((err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Internal server error' });
+    } else if (results.length === 0) {
+      res.status(404).json({ message: 'Soumission not found' });
+    } else {
+      res.status(200).json(results[0]);
+    }
+  });
+};
+
 exports.createSoumission = (req, res) => {
   const { option1, option2, principal, id_s_offre, lot } = req.body;
   const newSoumission = { option1, option2, principal, id_s_offre, lot };
